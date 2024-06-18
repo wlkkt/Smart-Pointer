@@ -81,3 +81,43 @@ private:
 	static int _count;
 };
 
+
+struct ListNode
+{
+	int _val;
+
+	//④使得下面的n1->next = n2之类的操作不会因为双方类型不同导致无法互相赋值
+	//struct ListNode* _next;
+	//struct ListNode* _prev;
+			  //|
+			  //v
+	std::shared_ptr<ListNode> _next;
+	std::shared_ptr<ListNode> _prev;
+
+	ListNode(int val = 0)
+		:_val(val)
+	{}
+};
+
+int main()
+{
+	//①ListNode* n1 = new ListNode(10);
+	//ListNode* n2 = new ListNode(20);
+				   //|
+				   //v
+	std::shared_ptr<ListNode> n1 = ((new) ListNode(10);
+	std::shared_ptr<ListNode> n2 = ((new) ListNode(20);
+
+	//②中间可能出现抛异常    
+		   //|
+		   //v
+	//不用担心抛异常了
+
+	n1->next = n2;
+	n2->prev = n1;
+
+	//④delete n1;
+	//delete n2;//此时不需要在这里delete了，在智能指针内部会delete
+
+	return 0;
+}
