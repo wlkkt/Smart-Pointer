@@ -99,25 +99,3 @@ struct ListNode
 	{}
 };
 
-int main()
-{
-	//①ListNode* n1 = new ListNode(10);
-	//ListNode* n2 = new ListNode(20);
-				   //|
-				   //v
-	std::shared_ptr<ListNode> n1 = ((new) ListNode(10);
-	std::shared_ptr<ListNode> n2 = ((new) ListNode(20);
-
-	//②中间可能出现抛异常    
-		   //|
-		   //v
-	//不用担心抛异常了
-
-	n1->next = n2;
-	n2->prev = n1;
-
-	//④delete n1;
-	//delete n2;//此时不需要在这里delete了，在智能指针内部会delete
-
-	return 0;
-}
