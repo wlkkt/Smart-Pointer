@@ -5,45 +5,45 @@ using namespace std;
 #include "SmartPtr.h"
 
 
-int div()
-{
-	int a, b;
-	cin >> a >> b;
-	if (b == 0)
-		throw invalid_argument("除0错误");
-
-	return a / b;
-}
-
-void Func()
-{
-	//创建一个int* 类型的智能指针
-	SmartPtr<int> sp1(new int);
-	SmartPtr<int> sp2(new int);
-
-
-	*sp1 += 10;//像指针一样可以*
-	
-	SmartPtr<pair<string, int>> sp3(new pair<string, int>);//智能指针sp3指向得是一个pair类型的匿名对象
-	sp3->first = "apple";
-	sp3->second = 1;//等价于sp3.operator->()->second = 1;
-		
-	cout << div() << endl;
-}
-
-int main()
-{
-	try
-	{
-		Func();
-	}
-	catch (const exception& e)
-	{
-		cout << e.what() << endl;
-	}
-
-	return 0;
-}
+//int div()
+//{
+//	int a, b;
+//	cin >> a >> b;
+//	if (b == 0)
+//		throw invalid_argument("除0错误");
+//
+//	return a / b;
+//}
+//
+//void Func()
+//{
+//	//创建一个int* 类型的智能指针
+//	SmartPtr<int> sp1(new int);
+//	SmartPtr<int> sp2(new int);
+//
+//
+//	*sp1 += 10;//像指针一样可以*
+//	
+//	SmartPtr<pair<string, int>> sp3(new pair<string, int>);//智能指针sp3指向得是一个pair类型的匿名对象
+//	sp3->first = "apple";
+//	sp3->second = 1;//等价于sp3.operator->()->second = 1;
+//		
+//	cout << div() << endl;
+//}
+//
+//int main()
+//{
+//	try
+//	{
+//		Func();
+//	}
+//	catch (const exception& e)
+//	{
+//		cout << e.what() << endl;
+//	}
+//
+//	return 0;
+//}
 
 
 //int div()
@@ -83,23 +83,30 @@ int main()
 
 int main()
 {
-	//①ListNode* n1 = new ListNode(10);
-	//ListNode* n2 = new ListNode(20);
-				   //|
-				   //v
-	std::shared_ptr<ListNode> n1 = ((new) ListNode(10);
-	std::shared_ptr<ListNode> n2 = ((new) ListNode(20);
+	////①ListNode* n1 = new ListNode(10);
+	////ListNode* n2 = new ListNode(20);
+	//			   //|
+	//			   //v
+	//std::shared_ptr<ListNode> n1 = ((new) ListNode(10);
+	//std::shared_ptr<ListNode> n2 = ((new) ListNode(20);
 
-	//②中间可能出现抛异常    
-		   //|
-		   //v
-	//不用担心抛异常了
+	////②中间可能出现抛异常    
+	//	   //|
+	//	   //v
+	////不用担心抛异常了
 
-	n1->next = n2;
-	n2->prev = n1;
+	//n1->next = n2;
+	//n2->prev = n1;
 
-	//④delete n1;
-	//delete n2;//此时不需要在这里delete了，在智能指针内部会delete
+	////④delete n1;
+	////delete n2;//此时不需要在这里delete了，在智能指针内部会delete
+
+
+
+	int* arr = new int(5);
+	delete arr;
+	arr = new int(6);
+	cout << *arr << endl;
 
 	return 0;
 }
