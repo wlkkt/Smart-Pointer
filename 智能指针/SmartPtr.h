@@ -82,22 +82,22 @@
 //};
 //
 //
-//struct ListNode
-//{
-//	int _val;
-//
-//	//④使得下面的n1->next = n2之类的操作不会因为双方类型不同导致无法互相赋值
-//	//struct ListNode* _next;
-//	//struct ListNode* _prev;
-//			  //|
-//			  //v
-//	std::shared_ptr<ListNode> _next;
-//	std::shared_ptr<ListNode> _prev;
-//
-//	ListNode(int val = 0)
-//		:_val(val)
-//	{}
-//};
+struct ListNode
+{
+	int _val;
+
+	//④使得下面的n1->next = n2之类的操作不会因为双方类型不同导致无法互相赋值
+	//struct ListNode* _next;
+	//struct ListNode* _prev;
+			  //|
+			  //v
+	std::shared_ptr<ListNode> _next;
+	std::shared_ptr<ListNode> _prev;
+
+	ListNode(int val = 0)
+		:_val(val)
+	{}
+};
 //
 //// 不支持RAII，不参与资源管理
 //template<class T>

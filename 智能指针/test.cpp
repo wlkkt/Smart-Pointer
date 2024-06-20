@@ -103,10 +103,14 @@ int main()
 
 
 
-	int* arr = new int(5);
-	delete arr;
-	arr = new int(6);
-	cout << *arr << endl;
+	//int* arr = new int(5);
+	//delete arr;
+	//arr = new int(6);
+	//cout << *arr << endl;
+
+
+	std::shared_ptr<ListNode> p1(new ListNode[10]);
+
 
 	return 0;
 }
