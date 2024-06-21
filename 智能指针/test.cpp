@@ -80,37 +80,64 @@ using namespace std;
 //	return 0;
 //}
 
+//
+//int main()
+//{
+//	////①ListNode* n1 = new ListNode(10);
+//	////ListNode* n2 = new ListNode(20);
+//	//			   //|
+//	//			   //v
+//	//std::shared_ptr<ListNode> n1 = ((new) ListNode(10);
+//	//std::shared_ptr<ListNode> n2 = ((new) ListNode(20);
+//
+//	////②中间可能出现抛异常    
+//	//	   //|
+//	//	   //v
+//	////不用担心抛异常了
+//
+//	//n1->next = n2;
+//	//n2->prev = n1;
+//
+//	////④delete n1;
+//	////delete n2;//此时不需要在这里delete了，在智能指针内部会delete
+//
+//
+//
+//	//int* arr = new int(5);
+//	//delete arr;
+//	//arr = new int(6);
+//	//cout << *arr << endl;
+//
+//
+//	SmartPtr<int> sp1(new int(1));
+//	sp1.Printf();
+//
+//
+//	//std::shared_ptr<ListNode> p1(new ListNode[10]);
+//
+//
+//	return 0;
+//}
+
+
+//int main()
+//{	// 使用类外定义的 operator new 和 operator delete
+//	Example e1;
+//	Example e2(e1);
+//
+//	e2 = e1;
+//
+//	return 0;
+//}
+
+
+
+
+
 
 int main()
 {
-	////①ListNode* n1 = new ListNode(10);
-	////ListNode* n2 = new ListNode(20);
-	//			   //|
-	//			   //v
-	//std::shared_ptr<ListNode> n1 = ((new) ListNode(10);
-	//std::shared_ptr<ListNode> n2 = ((new) ListNode(20);
-
-	////②中间可能出现抛异常    
-	//	   //|
-	//	   //v
-	////不用担心抛异常了
-
-	//n1->next = n2;
-	//n2->prev = n1;
-
-	////④delete n1;
-	////delete n2;//此时不需要在这里delete了，在智能指针内部会delete
-
-
-
-	//int* arr = new int(5);
-	//delete arr;
-	//arr = new int(6);
-	//cout << *arr << endl;
-
-
-	std::shared_ptr<ListNode> p1(new ListNode[10]);
-
-
-	return 0;
+    //Example e1;//错误,不可访问
+    //Example* e2 = CreatObj();//错误，找不到该函数
+    Example* e2 = Example::CreatObj();
 }

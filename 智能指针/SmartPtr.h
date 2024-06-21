@@ -1,5 +1,5 @@
 #pragma once
-//
+
 //template<class T>
 //class SmartPtr
 //{
@@ -15,7 +15,7 @@
 //		delete _ptr;
 //	}
 //
-//
+//	
 //	// 像指针一样使用SmartPtr类
 //	T& operator*()
 //	{
@@ -27,9 +27,26 @@
 //		return _ptr;
 //	}
 //
+//	void Printf()
+//	{
+//		SmartPtr<int> s1(new int(2));
+//		SmartPtr s2(s1);
+//		cout << get() << endl;
+//	}
 //
-//private:
-//	T* _ptr;
+//	private:
+//
+//	SmartPtr(const SmartPtr& s)
+//	{
+//		cout << "SmartPtr(const SmartPtr& s)" << endl;
+//	}
+//
+//	T* get()
+//	{
+//		return _ptr;
+//	}
+//
+//T* _ptr;
 //};
 //
 //
@@ -82,22 +99,22 @@
 //};
 //
 //
-struct ListNode
-{
-	int _val;
-
-	//④使得下面的n1->next = n2之类的操作不会因为双方类型不同导致无法互相赋值
-	//struct ListNode* _next;
-	//struct ListNode* _prev;
-			  //|
-			  //v
-	std::shared_ptr<ListNode> _next;
-	std::shared_ptr<ListNode> _prev;
-
-	ListNode(int val = 0)
-		:_val(val)
-	{}
-};
+//struct ListNode
+//{
+//	int _val;
+//
+//	//④使得下面的n1->next = n2之类的操作不会因为双方类型不同导致无法互相赋值
+//	//struct ListNode* _next;
+//	//struct ListNode* _prev;
+//			  //|
+//			  //v
+//	std::shared_ptr<ListNode> _next;
+//	std::shared_ptr<ListNode> _prev;
+//
+//	ListNode(int val = 0)
+//		:_val(val)
+//	{}
+//};
 //
 //// 不支持RAII，不参与资源管理
 //template<class T>
@@ -134,3 +151,50 @@ struct ListNode
 //private:
 //T* _ptr;
 //};
+
+
+//#include <iostream>
+//using namespace std;
+//
+//
+//class Example {
+//public:
+//	Example() {};
+//	//只声明不定义
+//	Example(const Example& e);//拷贝构造
+//	Example& operator=(const Example& e);//赋值重载
+//};
+//
+//// 在类外部定义 拷贝构造 和 赋值重载
+//Example::Example(const Example& e)
+//{
+//	cout << "Example(const Example& e)\n";
+//}
+//
+//Example& Example::operator=(const Example& e)
+//{
+//	cout << "Example& Example::operator=(const Example& e)\n";
+//	return *this;
+//}
+
+
+
+//Example::Example& operator= (const Example& e)
+//{
+//	cout << "Example(const Example& e)\n";
+//}
+
+
+class Example
+{
+public:
+    //静态成员函数：可以直接通过类名调用，而不需要类的对象实例
+    static Example* CreatObj()
+    {
+        return new Example;//在堆上new一个Example类型的匿名对象，并返回该对象的指针   
+    }
+
+private:
+
+    Example() {};//默认构造函数
+};
